@@ -1,3 +1,4 @@
+import Features from "./components/Features";
 import Highlights from "./components/Highlights";
 import Landing from "./components/Landing";
 import Navbar from "./components/Navbar";
@@ -8,6 +9,7 @@ function App() {
     <Navbar />
     <Landing />
     <Highlights />
+    <Features />
     </div>
   );
 }

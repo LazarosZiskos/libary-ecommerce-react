@@ -12,8 +12,8 @@ const Navbar = () => {
                 <img className="logo" src={logo} alt="logo" />
             </a>
         <ul className="nav__list">
-            <li><a className="nav__link" href="/home">Home</a></li>
-            <li><a className="nav__link" href="/home">Books</a></li>
+            <li><a className="nav__link" href="/">Home</a></li>
+            <li><a className="nav__link" href="/books">Books</a></li>
             <button className="btn__menu" onClick={() => document.body.classList += (" menu--open")}>
                 <FaAlignJustify />
             </button>

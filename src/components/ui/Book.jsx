@@ -3,7 +3,8 @@
 import { RxStarFilled } from "react-icons/rx";
 import { TbStarHalfFilled } from "react-icons/tb";
 
-const Book = ({ title, url, salePrice, originalPrice }) => {
+
+const Book = ({ title, url, salePrice, originalPrice, rating }) => {
   return (
     <div className="book">
       <a href="/">
@@ -16,20 +17,26 @@ const Book = ({ title, url, salePrice, originalPrice }) => {
           </a>
         </div>
         <div className="book__ratings">
-          <RxStarFilled />
-          <RxStarFilled />
-          <RxStarFilled />
-          <RxStarFilled />
-          <TbStarHalfFilled />
+          {
+            new Array(Math.floor(rating)).fill(0).map(() => 
+              <> <RxStarFilled /> </>
+            )
+          }
+
+          {
+            !Number.isInteger(rating) && <><TbStarHalfFilled /></>
+          }
         </div>
         <div className="book__price">
           {salePrice ? (
             <>
-              <span className="book__price--normal">{originalPrice.toFixed(2)}</span>
-              {salePrice.toFixed(2)}
+              <span className="book__price--normal">
+                ${originalPrice.toFixed(2)}
+              </span>
+              ${salePrice.toFixed(2)}
             </>
           ) : (
-            <>{originalPrice.toFixed(2)}</>
+            <>${originalPrice.toFixed(2)}</>
           )}
         </div>
       </a>

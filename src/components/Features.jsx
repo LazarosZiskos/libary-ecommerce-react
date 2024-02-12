@@ -14,6 +14,7 @@ const Features = () => {
               .map((book) => (
                      book.rating === 5 ? 
                     <Book key={book.id}
+                    rating={book.rating}
                     title={book.title}
                     salePrice={book.salePrice}
                     originalPrice={book.originalPrice}

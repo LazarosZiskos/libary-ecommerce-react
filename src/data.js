@@ -70,7 +70,7 @@ const books = [
     url: "https://covers.openlibrary.org/b/id/8906626-L.jpg",
     originalPrice: 35,
     salePrice: 19.95,
-    rating: 4.5,
+    rating: 3.5,
   },
   {
     id: 10,

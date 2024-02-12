@@ -3,6 +3,7 @@ import logo from "../assets/Library.svg"
 import { FaShoppingCart } from "react-icons/fa";
 import { FaWindowClose } from "react-icons/fa";
 
+
 const Navbar = () => {
   return (
     <nav>
@@ -13,7 +14,7 @@ const Navbar = () => {
         <ul className="nav__list">
             <li><a className="nav__link" href="/home">Home</a></li>
             <li><a className="nav__link" href="/home">Books</a></li>
-            <button className="btn__menu">
+            <button className="btn__menu" onClick={() => document.body.classList += (" menu--open")}>
                 <FaAlignJustify />
             </button>
             <li className="nav__icon">
@@ -24,7 +25,7 @@ const Navbar = () => {
             </li>
         </ul>
         <div className="menu__backdrop">
-            <button className="btn__menu btn__menu--close">
+            <button className="btn__menu btn__menu--close" onClick={() => document.body.classList -= ("menu--open")}>
                 <FaWindowClose />
             </button>
             <ul className="menu__links">

@@ -2,25 +2,26 @@ import { FaAlignJustify } from "react-icons/fa";
 import logo from "../assets/Library.svg"
 import { FaShoppingCart } from "react-icons/fa";
 import { FaWindowClose } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 
 const Navbar = () => {
   return (
     <nav>
         <div className="nav__container">
-            <a href="/">
+            <Link to="/">
                 <img className="logo" src={logo} alt="logo" />
-            </a>
+            </Link>
         <ul className="nav__list">
-            <li><a className="nav__link" href="/">Home</a></li>
-            <li><a className="nav__link" href="/books">Books</a></li>
+            <li><Link className="nav__link" to="/">Home</Link></li>
+            <li><Link className="nav__link" to="/books">Books</Link></li>
             <button className="btn__menu" onClick={() => document.body.classList += (" menu--open")}>
                 <FaAlignJustify />
             </button>
             <li className="nav__icon">
-                <a href="/cart" className="nav__link">
+                <Link to="/cart" className="nav__link">
                     <FaShoppingCart />
-                </a>
+                </Link>
                 <span className="cart__length">2</span>
             </li>
         </ul>
@@ -30,13 +31,13 @@ const Navbar = () => {
             </button>
             <ul className="menu__links">
                 <li className="menu__list">
-                    <a href="/" className="menu__link">Home</a>
+                    <Link to="/" className="menu__link">Home</Link>
                 </li>
                 <li className="menu__list">
-                    <a href="/books" className="menu__link">Books</a>
+                    <Link to="/books" className="menu__link">Books</Link>
                 </li>
                 <li className="menu__list">
-                    <a href="/cart" className="menu__link">Cart</a>
+                    <Link to="/cart" className="menu__link">Cart</Link>
                 </li>
             </ul>
         </div>

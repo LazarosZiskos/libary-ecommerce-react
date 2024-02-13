@@ -1,11 +1,17 @@
 /* eslint-disable react/prop-types */
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import books from "../data.js";
 import Rating from "../components/ui/Rating.jsx";
 import Price from "../components/ui/Price.jsx";
 
+
 const BookInfo = () => {
+    const {id} = useParams();
+    const book = books.find((book) => +book.id === +id)
+
+    console.log(book)
+
   return (
     <div id="books__body">
       <main id="books__main">
@@ -15,23 +21,23 @@ const BookInfo = () => {
               <Link to="/books" className="book__link">
                 <FaArrowLeft />
               </Link>
-              <Link to="/boos" className="book__link">
+              <Link to="/books" className="book__link">
                 <h2 className="book__selected--title--top">Books</h2>
               </Link>
             </div>
             <div className="book__selected">
               <figure className="book__selected--figure">
                 <img
-                  src={books[0].url}
+                  src={book.url}
                   alt="book image"
                   className="book__selected--img"
                 />
               </figure>
               <div className="book__selected--description">
-                <h2 className="book__selected--title">{books[0].title}</h2>
-                <Rating rating="4.5" />
+                <h2 className="book__selected--title">{book.title}</h2>
+                <Rating rating={book.rating} />
                 <div className="book__selected--price">
-                  <Price originalPrice={50} salePrice={30} />
+                  <Price originalPrice={book.originalPrice} salePrice={book.salePrice} />
                 </div>
                 <div className="book__summary">
                   <div className="book__summary--title">Summary</div>
@@ -59,7 +65,7 @@ const BookInfo = () => {
                     <h2 className="book__selected--title--top">
                         Recommended Books
                     </h2>
-                    
+
                 </div>
             </div>
         </div>

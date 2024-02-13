@@ -27,7 +27,7 @@ function App() {
             }
           />
           <Route
-            path="/books/1"
+            path="/books/:id"
             element={
               <BookInfo
                 id={books.id}

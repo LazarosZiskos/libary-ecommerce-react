@@ -57,6 +57,7 @@ const Books = () => {
                 {
                     books.map((book) => 
                         <Book key={book.id}
+                        id={book.id}
                         title={book.title}
                         url={book.url}
                         salePrice={book.salePrice}

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { FaAlignJustify } from "react-icons/fa";
 import logo from "../assets/Library.svg"
 import { FaShoppingCart } from "react-icons/fa";
@@ -5,7 +6,7 @@ import { FaWindowClose } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 
-const Navbar = () => {
+const Navbar = ({numberOfItems}) => {
   return (
     <nav>
         <div className="nav__container">
@@ -22,7 +23,10 @@ const Navbar = () => {
                 <Link to="/cart" className="nav__link">
                     <FaShoppingCart />
                 </Link>
-                <span className="cart__length">2</span>
+                {
+                    numberOfItems > 0 && <span className="cart__length">{numberOfItems}</span>
+                }
+                
             </li>
         </ul>
         <div className="menu__backdrop">

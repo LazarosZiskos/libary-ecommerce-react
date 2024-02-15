@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Books from "./pages/Books";
 import books from "./data.js";
 import BookInfo from "./pages/BookInfo.jsx";
+import Cart from "./pages/Cart.jsx";
 
 function App() {
   return (
@@ -39,6 +40,12 @@ function App() {
               />
             }
           />
+          <Route path="/cart" element={<Cart id={books.id}
+                title={books.title}
+                originalPrice={books.originalPrice}
+                salePrice={books.salePrice}
+                rating={books.rating}
+                url={books.url} />}/>
         </Routes>
         <Footer />
       </div>

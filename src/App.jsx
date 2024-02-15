@@ -12,23 +12,16 @@ function App() {
   const [cart, setCart] = useState([]);
 
   function addToCart(book) {
-    const dupeItem = cart.find(item => +item.id === +book.id)
-    if (dupeItem) {
-      setCart(cart.map(item => {
-       if (item.id === dupeItem.id) {
-        return {
-          ...item,
-          quantity: item.quantity +1,
-        };
-        }
-        else {
-          return item
-       }
-       
-      }))      
-    } else {
-      setCart([...cart, {...book, quantity: 1}])
-    }
+    setCart([...cart, {...book, quantity: 1}])
+  }
+
+  function changeQuantity(book, quantity) {
+    setCart(cart.map((item) =>    {   
+      return item.id === book.id ? {
+        ...item,
+        quantity: +quantity
+      } : item
+  }))
   }
 
   useEffect(() => {
@@ -66,6 +59,7 @@ function App() {
                 rating={books.rating}
                 url={books.url}
                 addToCart={addToCart}
+                cart={cart}
               />
             }
           />
@@ -74,7 +68,9 @@ function App() {
                 originalPrice={books.originalPrice}
                 salePrice={books.salePrice}
                 rating={books.rating}
-                url={books.url} />}/>
+                url={books.url}
+                cart={cart}
+                changeQuantity={changeQuantity}/>}/>
         </Routes>
         <Footer />
       </div>

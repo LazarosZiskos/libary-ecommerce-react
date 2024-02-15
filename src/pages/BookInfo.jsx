@@ -6,7 +6,7 @@ import Rating from "../components/ui/Rating.jsx";
 import Price from "../components/ui/Price.jsx";
 import Book from "../components/ui/Book.jsx"
 
-const BookInfo = () => {
+const BookInfo = ({addToCart}) => {
   const { id } = useParams();
   const book = books.find((book) => +book.id === +id);
 
@@ -58,7 +58,7 @@ const BookInfo = () => {
                       doloribus quis, laborum error excepturi est ea?
                     </p>
                   </div>
-                  <button className="btn">Add to Cart</button>
+                  <button className="btn" onClick={() => addToCart(book)}>Add to Cart</button>
                 </div>
               </div>
             </div>
